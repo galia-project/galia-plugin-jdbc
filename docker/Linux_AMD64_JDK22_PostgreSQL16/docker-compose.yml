@@ -1,0 +1,20 @@
+#
+# N.B.: docker-compose must be invoked from the project root directory:
+#
+# docker-compose -f path/to/docker-compose.yml up --exit-code-from galia
+#
+
+services:
+  galia-plugin-jdbc:
+    platform: linux/amd64
+    build:
+      args:
+        github_pat: ${ACTIONS_PAT}
+      context: ../../
+      dockerfile: $PWD/docker/Linux_AMD64_JDK22_PostgreSQL16/Dockerfile
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: galia_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres

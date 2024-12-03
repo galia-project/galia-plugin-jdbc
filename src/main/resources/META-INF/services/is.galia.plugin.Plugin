@@ -1,0 +1,4 @@
+is.galia.plugin.jdbc.cache.JDBCCache
+is.galia.plugin.jdbc.cache.PostgreSQLCache
+is.galia.plugin.jdbc.source.JDBCSource
+is.galia.plugin.jdbc.source.PostgreSQLSource

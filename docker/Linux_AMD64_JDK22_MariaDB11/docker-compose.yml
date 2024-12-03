@@ -1,0 +1,21 @@
+#
+# N.B.: docker-compose must be invoked from the project root directory:
+#
+# docker-compose -f path/to/docker-compose.yml up --exit-code-from galia
+#
+
+services:
+  galia-plugin-jdbc:
+    platform: linux/amd64
+    build:
+      args:
+        github_pat: ${ACTIONS_PAT}
+      context: ../../
+      dockerfile: $PWD/docker/Linux_AMD64_JDK22_MariaDB11/Dockerfile
+  mariadb:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: galia_test
+      MARIADB_USER: mariadb
+      MARIADB_PASSWORD: mariadb
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: true

@@ -1,0 +1,104 @@
+##
+# This sample Ruby delegate script contains stubs for JDBCSource and
+# PostgreSQLSource.
+# Simply copy the methods below (the ones for your Source) into your main
+# delegate class and implement them there.
+#
+class CustomDelegate
+
+  ##
+  # N.B.: this method should not try to perform authorization. `authorize()`
+  # should be used instead.
+  #
+  # @param options [Hash] Empty hash.
+  # @return [String, nil] Database identifier of the image corresponding to the
+  #                       identifier in the context, or nil if not found.
+  #
+  def jdbcsource_database_identifier(options = {})
+  end
+
+  ##
+  # Returns either the last-modified timestamp of an image in ISO 8601 format,
+  # or an SQL statement that can be used to retrieve it from a `TIMESTAMP`-type
+  # column in the database. In the latter case, the "SELECT" and "FROM" clauses
+  # should be in uppercase in order to be autodetected.
+  #
+  # Implementing this method is optional, but may be necessary for certain
+  # features (like `Last-Modified` response headers) to work.
+  #
+  # @param options [Hash] Empty hash.
+  # @return [String, nil]
+  #
+  def jdbcsource_last_modified(options = {})
+  end
+
+  ##
+  # Returns either the media (MIME) type of an image, or an SQL statement that
+  # can be used to retrieve it from a `CHAR`-type column in the database. In
+  # the latter case, the "SELECT" and "FROM" clauses should be in uppercase in
+  # order to be autodetected. If nil is returned, the media type will be
+  # inferred some other way, such as by identifier extension or magic bytes.
+  #
+  # @param options [Hash] Empty hash.
+  # @return [String, nil]
+  #
+  def jdbcsource_media_type(options = {})
+  end
+
+  ##
+  # @param options [Hash] Empty hash.
+  # @return [String] SQL statement that selects the BLOB corresponding to the
+  #                  value returned by `jdbcsource_database_identifier()`.
+  #
+  def jdbcsource_lookup_sql(options = {})
+  end
+
+  ##
+  # N.B.: this method should not try to perform authorization. `authorize()`
+  # should be used instead.
+  #
+  # @param options [Hash] Empty hash.
+  # @return [String, nil] Database identifier of the image corresponding to the
+  #                       identifier in the context, or nil if not found.
+  #
+  def postgresqlsource_database_identifier(options = {})
+  end
+
+  ##
+  # Returns either the last-modified timestamp of an image in ISO 8601 format,
+  # or an SQL statement that can be used to retrieve it from a `TIMESTAMP`-type
+  # column in the database. In the latter case, the "SELECT" and "FROM" clauses
+  # should be in uppercase in order to be autodetected.
+  #
+  # Implementing this method is optional, but may be necessary for certain
+  # features (like `Last-Modified` response headers) to work.
+  #
+  # @param options [Hash] Empty hash.
+  # @return [String, nil]
+  #
+  def postgresqlsource_last_modified(options = {})
+  end
+
+  ##
+  # Returns either the media (MIME) type of an image, or an SQL statement that
+  # can be used to retrieve it from a `CHAR`-type column in the database. In
+  # the latter case, the "SELECT" and "FROM" clauses should be in uppercase in
+  # order to be autodetected. If nil is returned, the media type will be
+  # inferred some other way, such as by identifier extension or magic bytes.
+  #
+  # @param options [Hash] Empty hash.
+  # @return [String, nil]
+  #
+  def postgresqlsource_media_type(options = {})
+  end
+
+  ##
+  # @param options [Hash] Empty hash.
+  # @return [String] SQL statement that selects the Large Object corresponding
+  #                  to the value returned by
+  #                  `postgresqlsource_database_identifier()`.
+  #
+  def postgresqlsource_lookup_sql(options = {})
+  end
+
+end

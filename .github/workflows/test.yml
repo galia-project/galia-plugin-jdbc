@@ -1,0 +1,24 @@
+name: Test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        db: [postgresql, mariadb]
+      fail-fast: false
+    env:
+      ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+      - name: Test against MariaDB
+        if: matrix.db == 'mariadb'
+        run: |
+          docker compose -f docker/Linux_AMD64_JDK22_MariaDB11/docker-compose.yml build --build-arg github_pat=$ACTIONS_PAT
+          docker compose -f docker/Linux_AMD64_JDK22_MariaDB11/docker-compose.yml up --exit-code-from galia-plugin-jdbc
+      - name: Test against PostgreSQL
+        if: matrix.db == 'postgresql'
+        run: |
+          docker compose -f docker/Linux_AMD64_JDK22_PostgreSQL16/docker-compose.yml build --build-arg github_pat=$ACTIONS_PAT
+          docker compose -f docker/Linux_AMD64_JDK22_PostgreSQL16/docker-compose.yml up --exit-code-from galia-plugin-jdbc

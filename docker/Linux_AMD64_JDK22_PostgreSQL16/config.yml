@@ -1,0 +1,50 @@
+#----------------------------------------
+# JDBCSource
+#----------------------------------------
+
+source.JDBCSource.url: jdbc:postgresql://postgres:5432/galia_test
+source.JDBCSource.user: postgres
+source.JDBCSource.password: postgres
+
+source.JDBCSource.max_pool_size:
+source.JDBCSource.connection_timeout:
+
+#----------------------------------------
+# JDBCCache
+#----------------------------------------
+
+# PostgreSQL's JDBC driver doesn't support createBlob() as of 42.7.3
+cache.JDBCCache.url: jdbc:h2:/tmp/JDBCCacheTest
+cache.JDBCCache.user: sa
+cache.JDBCCache.password:
+
+cache.JDBCCache.variant_image_table: JDBCCache_variants
+cache.JDBCCache.info_table: JDBCCache_infos
+
+cache.JDBCCache.max_pool_size:
+cache.JDBCCache.connection_timeout:
+
+#----------------------------------------
+# PostgreSQLSource
+#----------------------------------------
+
+source.PostgreSQLSource.url: jdbc:postgresql://postgres:5432/galia_test
+source.PostgreSQLSource.user: postgres
+source.PostgreSQLSource.password: postgres
+
+source.PostgreSQLSource.max_pool_size:
+source.PostgreSQLSource.connection_timeout:
+
+#----------------------------------------
+# PostgreSQLCache
+#----------------------------------------
+
+cache.PostgreSQLCache.url: jdbc:postgresql://postgres:5432/galia_test
+cache.PostgreSQLCache.user: postgres
+cache.PostgreSQLCache.password: postgres
+
+cache.PostgreSQLCache.variant_image_table: PostgreSQLCache_variants
+cache.PostgreSQLCache.info_table: PostgreSQLCache_infos
+
+cache.PostgreSQLCache.max_pool_size:
+cache.PostgreSQLCache.connection_timeout:

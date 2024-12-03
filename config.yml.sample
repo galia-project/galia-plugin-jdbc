@@ -1,0 +1,91 @@
+##
+# This file contains all of the configuration keys used by JDBCSource,
+# JDBCCache, PostgreSQLSource, and PostgreSQLCache. Simply copy them into
+# your main application configuration.
+#
+
+#----------------------------------------
+# JDBCSource
+#----------------------------------------
+
+# Note: JDBCSource requires some delegate methods to be implemented in
+# addition to the configuration here, and also a JDBC driver present on
+# the classpath; see the Guide.
+
+# !!
+source.JDBCSource.url: jdbc:postgresql://localhost:5432/my_database
+# !!
+source.JDBCSource.user: postgres
+# !!
+source.JDBCSource.password: postgres
+
+# !! Maximum connection pool size. Leave blank to use a reasonable default.
+source.JDBCSource.max_pool_size:
+
+# !! Connection timeout in seconds.
+source.JDBCSource.connection_timeout: 5
+
+
+#----------------------------------------
+# JDBCCache
+#----------------------------------------
+
+# !!
+cache.JDBCCache.url: jdbc:postgresql://localhost:5432/my_database
+# !!
+cache.JDBCCache.user: postgres
+# !!
+cache.JDBCCache.password:
+
+# These must be created manually; see the Guide.
+cache.JDBCCache.variant_image_table: variant_cache
+cache.JDBCCache.info_table: info_cache
+
+# !! Maximum connection pool size. Leave blank to use (CPU count * 2 + 1).
+cache.JDBCCache.max_pool_size:
+
+# !! Connection timeout in seconds.
+cache.JDBCCache.connection_timeout: 5
+
+
+#----------------------------------------
+# PostgreSQLSource
+#----------------------------------------
+
+# Note: This source requires some delegate methods to be implemented in
+# addition to the configuration here.
+
+# !!
+source.PostgreSQLSource.url: jdbc:postgresql://localhost:5432/my_database
+# !!
+source.PostgreSQLSource.user: postgres
+# !!
+source.PostgreSQLSource.password: postgres
+
+# !! Maximum connection pool size. Leave blank to use a reasonable default.
+source.PostgreSQLSource.max_pool_size:
+
+# !! Connection timeout in seconds.
+source.PostgreSQLSource.connection_timeout: 5
+
+
+#----------------------------------------
+# PostgreSQLCache
+#----------------------------------------
+
+# !!
+cache.PostgreSQLCache.url: jdbc:postgresql://localhost:5432/my_database
+# !!
+cache.PostgreSQLCache.user: postgres
+# !!
+cache.PostgreSQLCache.password:
+
+# !! Maximum connection pool size. Leave blank to use (CPU count * 2 + 1).
+cache.PostgreSQLCache.max_pool_size:
+
+# !! Connection timeout in seconds.
+cache.PostgreSQLCache.connection_timeout: 5
+
+# These must be created manually; see the Guide.
+cache.PostgreSQLCache.variant_image_table: variant_cache
+cache.PostgreSQLCache.info_table: info_cache

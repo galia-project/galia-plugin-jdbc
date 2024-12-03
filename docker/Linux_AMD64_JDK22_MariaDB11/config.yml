@@ -1,0 +1,49 @@
+#----------------------------------------
+# JDBCSource
+#----------------------------------------
+
+source.JDBCSource.url: jdbc:mariadb://mariadb:3306/galia_test
+source.JDBCSource.user: mariadb
+source.JDBCSource.password: mariadb
+
+source.JDBCSource.max_pool_size:
+source.JDBCSource.connection_timeout: 5
+
+#----------------------------------------
+# JDBCCache
+#----------------------------------------
+
+cache.JDBCCache.url: jdbc:mariadb://mariadb:3306/galia_test
+cache.JDBCCache.user: mariadb
+cache.JDBCCache.password: mariadb
+
+cache.JDBCCache.variant_image_table: JDBCCache_variants
+cache.JDBCCache.info_table: JDBCCache_infos
+
+cache.JDBCCache.max_pool_size:
+cache.JDBCCache.connection_timeout: 5
+
+#----------------------------------------
+# PostgreSQLSource
+#----------------------------------------
+
+source.PostgreSQLSource.url:
+source.PostgreSQLSource.user:
+source.PostgreSQLSource.password:
+
+source.PostgreSQLSource.max_pool_size:
+source.PostgreSQLSource.connection_timeout:
+
+#----------------------------------------
+# PostgreSQLCache
+#----------------------------------------
+
+cache.PostgreSQLCache.url:
+cache.PostgreSQLCache.user:
+cache.PostgreSQLCache.password:
+
+cache.PostgreSQLCache.variant_image_table:
+cache.PostgreSQLCache.info_table:
+
+cache.PostgreSQLCache.max_pool_size:
+cache.PostgreSQLCache.connection_timeout:
